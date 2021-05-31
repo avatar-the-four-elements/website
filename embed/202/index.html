@@ -11,18 +11,18 @@
 				background: #000000;
 				overflow: hidden;
 			}
-			
+
 			body {
 				color: #ffffff;
 			}
-			
+
 			.embedContainer {
 				width: 100%;
 				height: 100%;
 				float: left;
 				overflow: hidden;
 			}
-			
+
 			.embedContainer #embedAdG24MQhFR4,
 			.embedContainer #embedPlayer {
 				width: 100%;
@@ -30,12 +30,12 @@
 				float: left;
 				overflow: hidden;
 			}
-			
+
 			.embedContainer #embedAdG24MQhFR4 {
 				display: none;
 				position: relative;
 			}
-			
+
 			.embedContainer #embedAdG24MQhFR4 .G24MQhFR4 {
 				width: 300px;
 				height: 250px;
@@ -48,7 +48,7 @@
 				height: 250px;
 				float: left;
 			}
-			
+
 			.embedContainer #embedAdG24MQhFR4 .closeCountdown,
 			.embedContainer #embedAdG24MQhFR4 .closeAd,
 			.embedContainer #embedAdG24MQhFR4 .adLogo {
@@ -56,22 +56,22 @@
 				position: absolute;
                 z-index: 50;
 			}
-			
+
 			.embedContainer #embedAdG24MQhFR4 .closeCountdown {
 				left: 0;
 			}
-			
+
 			.embedContainer #embedAdG24MQhFR4 .closeAd {
 				right: 0;
 				display: none;
 			}
-			
+
 			.embedContainer #embedAdG24MQhFR4 .adLogo {
 				position: fixed;
 				right: 0;
 				bottom: 0;
 			}
-			
+
 			.boxMessage {
 				width: auto;
 				height: auto;
@@ -84,11 +84,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
 <script>
 			var baseUrl = "http://www.avatar-fourelements.nl";
-			
+
 			if(parent.location.href == window.location.href){
 				window.location.href = baseUrl + "/afleveringen/202/";
 			}
-			
+
 			window.oncontextmenu = function (){ return false; }
         </script>
 </head>
@@ -96,27 +96,27 @@
 <div class="embedContainer">
 <div id="embedPlayer">
 <div id="embedJwplayer"></div>
-<script src="https://www.avatar-fourelements.nl/module/mediaPlayer/jwplayer.js"></script>
-<script>					
+<script src="/module/mediaPlayer/jwplayer.js"></script>
+<script>
 						$(function(){
 							var embedWidth = $(window).width();
 							var embedHeight = $(window).height();
-							
+
 							var body = $("body");
 							var player = $("#embedPlayer");
-							
+
 							var videoPlayer = '';
 							var videoEmbed = '<iframe width="560" height="431" frameborder="0" src="http://www.mp4upload.com/embed-qrlps9hsdi2v.html" scrolling="no"></iframe>';
 							var videoError = false;
-							
+
 							videoEmbed = videoEmbed.replace('http://', 'https://');
 							videoEmbed = videoEmbed.replace(/(width\s*=\s*["'])[0-9]+(["'])/ig, 'width="' + embedWidth + '"');
 							videoEmbed = videoEmbed.replace(/(height\s*=\s*["'])[0-9]+(["'])/ig, 'height="' + embedHeight + '"');
-							
+
 							if(videoPlayer)
-							{	
+							{
 								var bufferTimeout = true;
-														
+
 								jwplayer('embedJwplayer').setup({
 									flashplayer: '/module/mediaPlayer/player.swf',
 									width: embedWidth,
@@ -134,11 +134,11 @@
 													if(bufferTimeout)
 													{
 														$(player).html(videoEmbed);
-														
+
 														bufferTimeout = false;
 													}
 												}, 15000);
-												
+
 												console.log(event.bufferPercent);
 											}
 											else{
@@ -147,7 +147,7 @@
 										},
 										onError: function(event){
 											$(player).html(videoEmbed);
-											
+
 											bufferTimeout = false;
 										}
 									}
@@ -160,7 +160,7 @@
 								}
 								else{
 									$(player).html("<div class='boxMessage'>Laden van aflevering is mislukt.</div>");
-									
+
 									videoError = true;
 								}
 							}
