@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Language" content="NL" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Avatar: The Four Elements - Embedplayer</title>
+<link href="../../ly/style/main.min.css" rel="stylesheet" />
+<style>html {
+				background: #000000;
+				overflow: hidden;
+			}
+			
+			body {
+				color: #ffffff;
+			}
+			
+			.embedContainer {
+				width: 100%;
+				height: 100%;
+				float: left;
+				overflow: hidden;
+			}
+			
+			.embedContainer #embedAdBGJJLpSIj7,
+			.embedContainer #embedPlayer {
+				width: 100%;
+				height: 100%;
+				float: left;
+				overflow: hidden;
+			}
+			
+			.embedContainer #embedAdBGJJLpSIj7 {
+				display: none;
+				position: relative;
+			}
+			
+			.embedContainer #embedAdBGJJLpSIj7 .BGJJLpSIj7 {
+				width: 300px;
+				height: 250px;
+				float: left;
+				background: #111111;
+			}
+
+			.embedContainer #embedAdBGJJLpSIj7 .BGJJLpSIj7 a{
+				width: 300px;
+				height: 250px;
+				float: left;
+			}
+			
+			.embedContainer #embedAdBGJJLpSIj7 .closeCountdown,
+			.embedContainer #embedAdBGJJLpSIj7 .closeAd,
+			.embedContainer #embedAdBGJJLpSIj7 .adLogo {
+				padding: 10px;
+				position: absolute;
+                z-index: 50;
+			}
+			
+			.embedContainer #embedAdBGJJLpSIj7 .closeCountdown {
+				left: 0;
+			}
+			
+			.embedContainer #embedAdBGJJLpSIj7 .closeAd {
+				right: 0;
+				display: none;
+			}
+			
+			.embedContainer #embedAdBGJJLpSIj7 .adLogo {
+				position: fixed;
+				right: 0;
+				bottom: 0;
+			}
+			
+			.boxMessage {
+				width: auto;
+				height: auto;
+				margin: 0;
+				padding: 18px;
+				float: left;
+				background: #000000;
+			}
+		</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script>
+			var baseUrl = "http://www.avatar-fourelements.nl";
+			
+			if(parent.location.href == window.location.href){
+				window.location.href = baseUrl + "/afleveringen/219/";
+			}
+			
+			window.oncontextmenu = function (){ return false; }
+        </script>
+</head>
+<body oncontextmenu="return false">
+<div class="embedContainer">
+<div id="embedPlayer">
+<div id="embedJwplayer"></div>
+<script src="https://www.avatar-fourelements.nl/module/mediaPlayer/jwplayer.js"></script>
+<script>					
+						$(function(){
+							var embedWidth = $(window).width();
+							var embedHeight = $(window).height();
+							
+							var body = $("body");
+							var player = $("#embedPlayer");
+							
+							var videoPlayer = '';
+							var videoEmbed = '<iframe width="560" height="431" frameborder="0" src="http://www.mp4upload.com/embed-pwd6ol792wcq.html" scrolling="no"></iframe>';
+							var videoError = false;
+							
+							videoEmbed = videoEmbed.replace('http://', 'https://');
+							videoEmbed = videoEmbed.replace(/(width\s*=\s*["'])[0-9]+(["'])/ig, 'width="' + embedWidth + '"');
+							videoEmbed = videoEmbed.replace(/(height\s*=\s*["'])[0-9]+(["'])/ig, 'height="' + embedHeight + '"');
+							
+							if(videoPlayer)
+							{	
+								var bufferTimeout = true;
+														
+								jwplayer('embedJwplayer').setup({
+									flashplayer: '/module/mediaPlayer/player.swf',
+									width: embedWidth,
+									height: embedHeight,
+									wmode: 'transparent',
+									type: 'video',
+									file: videoPlayer,
+									autostart: false,
+									image: '',
+									events: {
+										onBufferChange: function(event){
+											if(event.bufferPercent == 0)
+											{
+												setTimeout(function(){
+													if(bufferTimeout)
+													{
+														$(player).html(videoEmbed);
+														
+														bufferTimeout = false;
+													}
+												}, 15000);
+												
+												console.log(event.bufferPercent);
+											}
+											else{
+												bufferTimeout = false;
+											}
+										},
+										onError: function(event){
+											$(player).html(videoEmbed);
+											
+											bufferTimeout = false;
+										}
+									}
+								});
+							}
+							else{
+								if(videoEmbed)
+								{
+									$(player).html(videoEmbed);
+								}
+								else{
+									$(player).html("<div class='boxMessage'>Laden van aflevering is mislukt.</div>");
+									
+									videoError = true;
+								}
+							}
+						});
+					</script> <!--[if lte IE 7]>
+            	<script>
+                    var answer = confirm("Deze aflevering kan helaas niet worden bekeken in Internet Explorer 7 of lager. Wij adviseren uw browser te updaten naar een nieuwere versie.")
+                    if(answer)
+                    {
+                        parent.location = "http://www.microsoft.com/netherlands/windows/internet-explorer/";
+                    }
+                </script>
+            <![endif]-->
+</div>
+</div>
+</body>
+</html>
