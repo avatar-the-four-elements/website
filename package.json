@@ -1,7 +1,7 @@
 {
 	"name": "avatar-the-four-elements",
 	"description": "",
-	"version": "4.0.0",
+	"version": "3.7.0",
 	"author": "Glkx <guido.schalkx@glkx.nl> (https://www.guidoschalkx.com)",
 	"private": false,
 	"main": "index.js",
