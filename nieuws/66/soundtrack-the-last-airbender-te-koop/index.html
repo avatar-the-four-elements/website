@@ -22,13 +22,7 @@
         </script>
 </head>
 <body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLKS92"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-PLKS92');</script>
+
 
 <div class="main">
 <div class="header">
@@ -252,39 +246,16 @@ Veel luister plezier en natuurlijk <u>kopen</u> die soundtrack <img src="../../.
 </div>
 </div>
 </div>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js"></script>
-<script>
-			var cookieConsentType = 'opt-in',
-				cookieConsentPosition = 'bottom-right',
-				cookieConsentPallete = {
-					popup: {
-						background: '#1c2124'
-					},
-					button: {
-						background: '#dd4b39'
-					}
-				},
-				cookieConsentContent = {
-					message: 'Deze website gebruikt analytische cookies en vergelijkbare technieken om het gebruiksgemak te vergroten.',
-					dismiss: 'Oké begrepen!',
-					allow: 'Cookies toestaan',
-					deny: 'Afwijzen',
-					link: 'Meer informatie',
-					href: '/site/privacy/'
-				};
 
-			!function(o){var e={setPermission:e=>{if(!Number.isInteger(e)&&e<=0&&e>3)return!1;o.cookie("cookieconsent_level",e,{expires:365,path:"/"})},getPermission:()=>{let e=o.cookie("cookieconsent_level");return e||1},hasPermission:o=>e.getPermission()>=o};function n(){navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack?e.setPermission(2):e.setPermission(3)}function i(){e.setPermission(1)}o(document).ready(function(){window.cookieconsent.initialise({type:cookieConsentType,position:cookieConsentPosition,palette:cookieConsentPallete,compliance:{info:'<div class="cc-compliance">{{dismiss}}</div>',"opt-in":'<div class="cc-compliance cc-highlight">{{deny}}{{allow}}</div>',"opt-out":'<div class="cc-compliance cc-highlight">{{deny}}{{dismiss}}</div>'},content:{message:cookieConsentContent.message,dismiss:cookieConsentContent.dismiss,allow:cookieConsentContent.allow,deny:cookieConsentContent.deny,link:cookieConsentContent.link,href:cookieConsentContent.href},onInitialise:function(){let o=this.options.type,e=this.hasConsented();"opt-in"==o&&e&&n(),"opt-out"!=o||e||i()},onStatusChange:function(){let o=this.options.type,e=this.hasConsented();"opt-in"==o&&e&&n(),"opt-out"!=o||e||i()},onRevokeChoice:function(){let o=this.options.type;"opt-in"==o&&i(),"opt-out"==o&&n()}})})}(jQuery);
-		</script>
 <script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-			ga('create', 'UA-9385009-4', 'auto');
-			ga('require', 'displayfeatures');
+			ga('create', 'UA-9385009-4', {
+  storeGac: false,
+});
 			ga('send', 'pageview');
 		</script>
 </body>
